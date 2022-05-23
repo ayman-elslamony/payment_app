@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_hyperpay/flutter_hyperpay.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +31,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -106,10 +110,62 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: goToHayperPayment,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  Future<void> goToHayperPayment() async {
+    FlutterHyperpay flutterHyperpay =  FlutterHyperpay(
+      channeleName: InAppPaymentSetting.channel,
+      shopperResultUrl: InAppPaymentSetting.ShopperResultUrl,
+      paymentMode: true ? PaymentMode.TEST : PaymentMode.LIVE,
+      lang: InAppPaymentSetting.getLang(),
+
+    );
+    PaymentResultData paymentResultData = await flutterHyperpay.readyUICards(
+      readyUI: ReadyUI(
+        brandName: "VISA",
+        checkoutid: "5343E4265B65DC802E00CEF7CBE4C23E.uat01-vm-tx04",
+        setStorePaymentDetailsMode: true,
+      ),
+    );
+
+  }
+
+
+
+}
+
+class InAppPaymentSetting {
+  static  String paymentMode=true?"TEST":"LIVE";
+  static const String MADA="MADA";
+  static const String APPLEPAY="APPLEPAY";
+  static const String Credit="credit";
+  static const String STC_PAY="STC_PAY";
+  static const String ReadyUI="ReadyUI";
+  static const String CustomUI="CustomUI";
+  static const String gethyperpayresponse="gethyperpayresponse";
+  static const String success="success";
+  static const String SYNC="SYNC";
+  static const String PayTypeSotredCard="PayTypeSotredCard";
+  static const String PayTypeFromInput="PayTypeFromInput";
+  static const String EnabledTokenization="true";
+  static const String DisableTokenization="false";
+  static const String ShopperResultUrl="com.eitinaa.payment";
+  static const String ApplePaybundel="merchant.com.eitinaatalents.applepay.live";
+  static const String TestMode="TEST";
+  static const String LiveMode="LIVE";
+  static const String CountryCode="SA";
+  static const String CurrencyCode="SAR";
+  static const String channel="Hyperpay.demo.fultter/channel";
+  static getLang(){
+    if(Platform.isIOS){
+      return true?"ar":"en";
+    }else{
+      return true?"ar_AR":"en_US";
+    }
   }
 }

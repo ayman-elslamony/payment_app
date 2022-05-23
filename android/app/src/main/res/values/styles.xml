@@ -15,4 +15,33 @@
     <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">?android:colorBackground</item>
     </style>
+
+<!--    You can Change Style for payment-->
+    <style name="NewCheckoutTheme" parent="Theme.Checkout.Light">
+        <item name="headerBackground">@color/headerBackground</item>
+        <!--        <item name="fontFamily">@font/hanimation</item>-->
+<!--        You Can Enable Font Here-->
+        <item name="cancelButtonTintColor">@color/cancelButtonTintColor</item>
+
+        <item name="listMarkTintColor">@color/listMarkTintColor</item>
+        <item name="cameraTintColor">@color/cameraTintColor</item>
+        <item name="checkboxButtonTintColor">@color/checkboxButtonTintColor</item>
+        <item name="checkoutButtonStyle">@style/NewCheckoutTheme.Button</item>
+        <item name="checkoutProgressBarStyle">@style/NewCheckoutTheme.checkoutProgressBarStyle</item>
+    </style>
+
+    <style name="NewCheckoutTheme.Button" parent="Checkout.Button.Light">
+        <item name="android:background">@color/headerBackground</item>
+    </style>
+    <style name="NewCheckoutTheme.checkoutProgressBarStyle" parent="Checkout.Progress">
+        <item name="android:indeterminateTint">@color/headerBackground</item>
+    </style>
+
+
+    <color name="headerBackground">#ff1298AD</color>
+    <color name="cancelButtonTintColor">#fff</color>
+    <color name="listMarkTintColor">#ff1298AD</color>
+    <color name="cameraTintColor">#ff1298AD</color>
+    <color name="checkboxButtonTintColor">#ff1298AD</color>
+    <color name="checkoutProgressBarStyle">#ff1298AD</color>
 </resources>
