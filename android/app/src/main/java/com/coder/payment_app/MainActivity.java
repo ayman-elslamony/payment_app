@@ -191,7 +191,7 @@ public class MainActivity extends FlutterActivity implements ITransactionListene
         //change Theme
         checkoutSettings.setThemeResId(R.style.NewCheckoutTheme);
         ComponentName componentName = new ComponentName(
-                getPackageName(), com.example.payment_method.CheckoutBroadcastReceiver.class.getName());
+                getPackageName(), CheckoutBroadcastReceiver.class.getName());
 
 
         /* Set up the Intent and start the checkout activity. */
