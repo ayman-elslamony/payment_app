@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
     PaymentResultData paymentResultData = await flutterHyperpay.readyUICards(
       readyUI: ReadyUI(
         brandName: "VISA",
-        checkoutid: "BABB08213A00CA3053E152588B96770E.uat01-vm-tx04",
+        checkoutid: "25A9609079DDEB2EFB0C55067D97A064.uat01-vm-tx04",
         setStorePaymentDetailsMode: true,
       ),
     );
@@ -158,7 +158,7 @@ class InAppPaymentSetting {
   static const String PayTypeFromInput="PayTypeFromInput";
   static const String EnabledTokenization="true";
   static const String DisableTokenization="false";
-  static const String ShopperResultUrl="com.eitinaa.payment";
+  static const String ShopperResultUrl="com.pay.payment";
   static const String ApplePaybundel="merchant.com.eitinaatalents.applepay.live";
   static const String TestMode="TEST";
   static const String LiveMode="LIVE";
