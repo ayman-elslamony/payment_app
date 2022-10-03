@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hyperpay/flutter_hyperpay.dart';
 import 'package:http/http.dart' as http;
+import 'package:payment_app/ready_ui.dart';
 
-import 'main.dart';
 
 class payment_form extends StatefulWidget {
   String type;
